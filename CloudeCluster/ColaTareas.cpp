@@ -1,0 +1,2 @@
+#include "ColaTareas.h"
+//metodos
