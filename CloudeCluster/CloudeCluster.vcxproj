@@ -140,6 +140,16 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="CloudeCluster.cpp" />
+    <ClCompile Include="Cluster.cpp" />
+    <ClCompile Include="ColaTareas.cpp" />
+    <ClCompile Include="Servidor.cpp" />
+    <ClCompile Include="Tarea.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Cluster.h" />
+    <ClInclude Include="ColaTareas.h" />
+    <ClInclude Include="Servidor.h" />
+    <ClInclude Include="Tarea.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

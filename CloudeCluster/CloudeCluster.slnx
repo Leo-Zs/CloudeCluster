@@ -3,5 +3,5 @@
     <Platform Name="x64" />
     <Platform Name="x86" />
   </Configurations>
-  <Project Path="CloudeCluster.vcxproj" />
+  <Project Path="CloudeCluster.vcxproj" Id="8482c820-def9-43a7-be1a-405a5a6f4963" />
 </Solution>

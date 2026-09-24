@@ -1,0 +1,2 @@
+//metodos
+#include "Tarea.h"
