@@ -23,7 +23,8 @@ public:
 	string getIp();
 	string getNombre();
 	string getArquitectura();
-
+	
+	ColaTareas* getCola();//permite ver la cola de servidor
 	Servidor* getSiguiente();
 	Servidor* getAnterior();
 
