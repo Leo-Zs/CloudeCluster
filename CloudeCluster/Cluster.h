@@ -1,6 +1,20 @@
-#pragma once
+//clase Ash
+#ifndef CLUSTER_H
+#define CLUSTER_H
+#include "Servidor.h"
 class Cluster
 {
-};
+private:
+	Servidor* primero;
+	Servidor* ultimo;
 
-//clase
+public:
+	Cluster();
+
+	void registrarServidor();
+	Servidor* buscarServidor(int);
+	void mostrarServidores();
+	void modificarServidor();
+	void eliminarServidor();
+};
+#endif // CLUSTER_H

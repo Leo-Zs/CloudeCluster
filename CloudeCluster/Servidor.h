@@ -24,8 +24,18 @@ public:
 	string getNombre();
 	string getArquitectura();
 
+	Servidor* getSiguiente();
+	Servidor* getAnterior();
+
 	//Set los metodos que se pueden modificar
 	void setNombre(string);
 	void setArquitectura(string);
+	void setSiguiente(Servidor*);
+	void setAnterior(Servidor*);
+	void setId(int);
+	void setIp(string);
 };
 #endif // SERVIDOR_H
+
+
+
