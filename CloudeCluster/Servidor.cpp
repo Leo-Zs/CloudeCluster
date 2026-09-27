@@ -30,3 +30,33 @@ void Servidor::setNombre(string nuevoNombre) {
 void Servidor::setArquitectura(string nuevaArquitectura) {
 	arquitectura = nuevaArquitectura;
 }
+
+Servidor* Servidor::getSiguiente()
+{
+	return siguiente;
+}
+
+Servidor* Servidor::getAnterior()
+{
+	return anterior;
+}
+
+void Servidor::setSiguiente(Servidor* nuevo)
+{
+	siguiente = nuevo;
+}
+
+void Servidor::setAnterior(Servidor* nuevo)
+{
+	anterior = nuevo;
+}
+
+void Servidor::setId(int nuevoId)
+{
+	id = nuevoId;
+}
+
+void Servidor::setIp(string nuevaIp)
+{
+	ip = nuevaIp;
+}
