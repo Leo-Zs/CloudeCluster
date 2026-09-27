@@ -60,3 +60,6 @@ void Servidor::setIp(string nuevaIp)
 {
 	ip = nuevaIp;
 }
+ColaTareas* Servidor::getCola() {
+	return cola;
+}
