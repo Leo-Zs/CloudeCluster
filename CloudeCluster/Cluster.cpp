@@ -331,3 +331,35 @@ void Cluster::resolverTarea() {
 
 	delete tarea;
 }
+
+void Cluster::cancelarTarea() {
+
+	int idServidor;
+	int idTarea;
+
+	cout << "Digite el ID del servidor: ";
+	cin >> idServidor;
+
+	Servidor* servidor = buscarServidor(idServidor);
+
+	if(servidor == NULL) {
+		cout << "No existe un servidor con ese ID..." << endl;
+		return;
+	}
+
+	if (servidor->getCola()->estaVacia()) {
+		cout << "El servidor no tiene tareas pendientes " << endl;
+		return;
+
+	}
+
+	cout << "Digite el ID de la tarea que desea eliminar: ";
+	cin >> idTarea;
+
+	if (servidor->getCola()->cancelarPorId(idTarea)) {
+		cout << "La tarea se eliminó correctamente" << endl;
+	}else{
+		cout << "No se encontró una tarea con ese ID en el servidor" << endl;
+	}
+
+}
