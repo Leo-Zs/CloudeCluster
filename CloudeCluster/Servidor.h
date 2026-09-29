@@ -18,7 +18,7 @@ private:
 
 public:
 	Servidor();//constructor
-
+	~Servidor();
 	int getId();
 	string getIp();
 	string getNombre();

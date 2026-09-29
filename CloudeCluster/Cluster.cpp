@@ -1,5 +1,6 @@
 //metodos Ash
 #include "Cluster.h"
+#include "ColaTareas.h"
 #include<iostream>
 #include <string>
 
@@ -216,4 +217,77 @@ void Cluster::eliminarServidor()
 	}
 	delete servidor;
 	cout << "Servidor eliminado correctamente." << endl;
+}
+void Cluster::registrarTarea() {
+
+	if (primero == NULL) {
+		cout << "No hay servidores registrados" << endl;
+		return;
+	}
+	string nombre;
+	double memoria;
+	char prioridad;
+
+	cout << "Escriba el nombre de la tarea: ";
+	cin >> nombre;
+	do {
+		cout << "Escriba la memoria requerida de la tarea en GB:";
+		cin >> memoria;
+
+		if (memoria <= 0) {
+			cout << "La memoria debe ser mayor a 0";
+
+		}
+	} while (memoria <= 0);
+
+	do {
+		cout << "Escriba la prioridad de su tarea (N es normal // C= Critica):";
+		cin >> prioridad;
+		if(prioridad != 'N' && prioridad != 'C') {
+			cout << "Prioridad inválida. Por favor, ingrese 'N' para normal o 'C' para crítica.";
+		}
+	} while (prioridad != 'N' && prioridad != 'C');
+
+	Tarea* nuevaTarea = new Tarea();
+	nuevaTarea->setNombre(nombre);
+	nuevaTarea->setMemoria(memoria);
+	nuevaTarea->setPrioridad(prioridad);
+
+	Servidor* servidorElegido = NULL;
+	if (prioridad == 'C' || memoria > 32) {
+		Servidor* actual = primero;
+
+		do {
+			if (actual->getArquitectura() == "High-Performance") {
+				if (servidorElegido == NULL || actual->getCola()->getCantidad() <
+					servidorElegido->getCola()->getCantidad()) {
+					servidorElegido = actual;
+				}
+
+
+			}
+			actual = actual->getSiguiente();
+		} while (actual != primero);
+	}
+	else {
+		Servidor* actual = primero;
+		do {
+			if (servidorElegido == NULL || actual->getCola()->getCantidad() < 
+				servidorElegido->getCola()->getCantidad()) {
+				servidorElegido = actual;
+			}
+			actual = actual->getSiguiente();
+		} while (actual != primero);
+	}
+	if (servidorElegido == NULL) {
+		cout << "No hay un servidor disponible para la tarea...";
+		delete nuevaTarea;
+		return;
+	}
+	servidorElegido->getCola()->encolar(nuevaTarea);
+	cout << endl;
+	cout << "¡La tarea se registro correctamente!" << endl;
+	cout << "El ID de Tarea es:" << nuevaTarea->getId() << endl;
+	cout << "El servidor asignado a la tarea es:" <<servidorElegido->getId() << endl;
+
 }

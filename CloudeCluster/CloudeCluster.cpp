@@ -13,7 +13,8 @@ int main()
         cout << "2.Mostrar Servidores" << endl;
         cout << "3.Modificar Servidor" << endl;
         cout << "4.Eliminar Servidor" << endl;
-        cout << "5. Salir del menu" << endl; 
+        cout << "5.Registrar Tarea" << endl; 
+        cout << "6.Salir" << endl;
         cout << "Escoja una Opcion: " << endl;
         cin >> opcion;
         system("cls");
@@ -36,12 +37,15 @@ int main()
             cluster.eliminarServidor();
             break;
         case 5:
-            cout << " Saliendo del programa";
+            cluster.registrarTarea();
             break;
+		case 6:
+            cout << " Saliendo del programa";
+			break;
         default:
             cout << "\n\n Opcion No Valida \n\n";
         }
-    } while (opcion != 5);
+    } while (opcion != 6);
     return 0;
 }
 

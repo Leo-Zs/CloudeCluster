@@ -1,8 +1,9 @@
 //metodos
 #include "Tarea.h"
 
+static int contadorId = 0;// el pdf pide el id se otorgue de manera automatica
 Tarea::Tarea() {
-	id = 0;
+	id = ++contadorId;
 	memoria = 0;
 	prioridad = 'N';
 	nombre = "";
