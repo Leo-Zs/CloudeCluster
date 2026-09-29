@@ -119,7 +119,18 @@ void Cluster::mostrarServidores()
 		cout << "Nombre: " << actual->getNombre() << endl;
 		cout << "IP: " << actual->getIp() << endl;
 		cout << "Arquitectura: " << actual->getArquitectura() << endl;
-		
+
+		cout << "Tareas pendientes: " << actual->getCola()->getCantidad() << endl;
+		if (!actual->getCola()->estaVacia())
+		{
+			cout << "Tareas: " << endl;
+			actual->getCola()->mostrarCola();
+		}
+		else
+		{
+			cout << "No tiene tareas pendientes." << endl;
+		}
+
 		actual = actual->getSiguiente();
 	} while (actual != primero);
 }
@@ -182,6 +193,11 @@ void Cluster::eliminarServidor()
 	if (servidor == NULL)
 	{
 		cout << "No existe un servidor con ese ID." << endl;
+		return;
+	}
+	if (!servidor->getCola()->estaVacia())
+	{
+		cout << "No se puede eliminar el servidor porque tiene tareas pendientes." << endl;
 		return;
 	}
 
