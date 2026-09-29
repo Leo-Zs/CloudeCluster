@@ -1,4 +1,5 @@
 #include "Servidor.h"
+#include "ColaTareas.h"
 #include <iostream>
 #include <iomanip>
 using namespace std;
@@ -10,7 +11,10 @@ Servidor::Servidor() {
 	arquitectura = "";
 	siguiente = NULL;
 	anterior = NULL;
-	cola = NULL;
+	cola = new ColaTareas();
+}
+Servidor::~Servidor() {
+	delete cola;
 }
 int Servidor::getId() {
 	return id;

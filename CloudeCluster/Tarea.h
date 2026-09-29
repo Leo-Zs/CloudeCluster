@@ -1,13 +1,11 @@
 #pragma once
 #ifndef TAREA_H
 #define TAREA_H
-
 #include <iostream>
-#include <string>
 #include <string>
 using namespace std;
 
-typedef class Tarea// !TAREA_H
+class Tarea// !TAREA_H
 {
 private:
 	int id;

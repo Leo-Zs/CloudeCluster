@@ -16,5 +16,6 @@ public:
 	void mostrarServidores();
 	void modificarServidor();
 	void eliminarServidor();
+	void registrarTarea();
 };
 #endif // CLUSTER_H
