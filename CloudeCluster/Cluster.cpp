@@ -245,7 +245,9 @@ void Cluster::registrarTarea() {
 	char prioridad;
 
 	cout << "Escriba el nombre de la tarea: ";
-	cin >> nombre;
+	cin.ignore();
+	getline(cin, nombre);
+
 	do {
 		cout << "Escriba la memoria requerida de la tarea en GB:";
 		cin >> memoria;
@@ -305,5 +307,27 @@ void Cluster::registrarTarea() {
 	cout << "¡La tarea se registro correctamente!" << endl;
 	cout << "El ID de Tarea es:" << nuevaTarea->getId() << endl;
 	cout << "El servidor asignado a la tarea es:" <<servidorElegido->getId() << endl;
+}
+void Cluster::resolverTarea() {
 
+	if (primero == NULL) {
+		cout << "No hay servidores registrados" << endl;
+		return;
+	}
+	int idServidor;
+	cout << "Digite el ID del servidor para resolver la tarea de su respectiva Cola: ";
+	cin >> idServidor;
+
+	Servidor* servidor = buscarServidor(idServidor);
+	if (servidor == NULL) {
+		cout << "No existe servidor con ese ID...";
+		return;
+	}
+	Tarea* tarea = servidor->getCola()->desencolar();
+	cout << endl;
+	cout << "¡La tarea se resolvio correctamente!" << endl;
+	cout << "El ID de Tarea es:" << tarea->getId()<< endl;
+	cout << "Nombre de la Tarea:" << tarea->getNombre() << endl;
+
+	delete tarea;
 }
