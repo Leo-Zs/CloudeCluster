@@ -4,7 +4,7 @@
 #include <string>
 using namespace std;
 class ColaTareas; 
-typedef class Servidor
+class Servidor
 {
 private:
 	int id;
