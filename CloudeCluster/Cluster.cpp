@@ -304,7 +304,7 @@ void Cluster::registrarTarea() {
 	}
 	servidorElegido->getCola()->encolar(nuevaTarea);
 	cout << endl;
-	cout << "¡La tarea se registro correctamente!" << endl;
+	cout << "La tarea se registro correctamente" << endl;
 	cout << "El ID de Tarea es:" << nuevaTarea->getId() << endl;
 	cout << "El servidor asignado a la tarea es:" <<servidorElegido->getId() << endl;
 }
@@ -323,11 +323,32 @@ void Cluster::resolverTarea() {
 		cout << "No existe servidor con ese ID...";
 		return;
 	}
-	Tarea* tarea = servidor->getCola()->desencolar();
+	if (servidor->getCola()->estaVacia())
+	{
+		cout << "El servidor no tiene tareas pendientes." << endl;
+		return;
+	}
+	Tarea*tarea = servidor->getCola()->getPrimero();
+
 	cout << endl;
-	cout << "¡La tarea se resolvio correctamente!" << endl;
-	cout << "El ID de Tarea es:" << tarea->getId()<< endl;
+	cout << "Estado actual del servidor con las tareas " << endl;
+	cout << "Servidor: " << servidor->getNombre() << endl;
+	cout << "IP: " << servidor->getIp() << endl;
+	cout << "ID de tarea: " << tarea->getId() << endl;
+	cout << "Nombre: " << tarea->getNombre() << endl;
+	cout << "Memoria: " << tarea->getMemoria() << " GB" << endl;
+	cout << "Prioridad: " << tarea->getPrioridad() << endl;
+	cout << "Tareas pendientes: " << servidor->getCola()->getCantidad() << endl;
+
+	tarea = servidor->getCola()->desencolar();
+
+	cout << endl;
+	cout << "==Estado actualizado de la tareas del servidor==" << endl;
+	cout << "La tarea se resolvio correctamente" << endl;
+	cout << "Servidor: " << servidor->getNombre() << endl;
+	cout << "IP: " << servidor->getIp() << endl;
 	cout << "Nombre de la Tarea:" << tarea->getNombre() << endl;
+	cout << "Tareas pendientes: " << servidor->getCola()->getCantidad() << endl;
 
 	delete tarea;
 }
