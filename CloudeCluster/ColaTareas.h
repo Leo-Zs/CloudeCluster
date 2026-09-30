@@ -1,5 +1,4 @@
 #pragma once
-
 //clase vane
 #ifndef COLATAREAS_H
 #define COLATAREAS_H

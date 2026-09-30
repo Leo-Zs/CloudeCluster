@@ -45,7 +45,7 @@ int main()
             cluster.resolverTarea();
 			break;
         case 7: 
-            //cluster.cancelarTarea();
+            cluster.cancelarTarea();
             break;
 		case 8:
 			cout << "Saliendo del programa";
