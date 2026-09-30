@@ -5,7 +5,7 @@
 #include <string>
 using namespace std;
 
-class Tarea// !TAREA_H
+class Tarea// TAREA_H
 {
 private:
 	int id;
@@ -16,6 +16,7 @@ private:
 
 public:
 	Tarea();
+	
 	int getId();
 	double getMemoria();
 	char getPrioridad();
@@ -27,8 +28,6 @@ public:
 	void setPrioridad(char);
 	void setNombre(string);
 	void setSiguiente(Tarea*);
-
-
 
 };
 
